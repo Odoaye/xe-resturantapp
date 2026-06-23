@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets & base styles ─────────────────────────────────────────── */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  /* Keep the app centred and capped at a mobile width */
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars on category pills while keeping scroll behaviour */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth tap highlighting on mobile */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
