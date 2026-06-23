@@ -14,7 +14,7 @@
  *  On success: calls addOrder(), clearCart(), shows success screen.
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { ChevronLeft, ChevronRight, MapPin, Phone, CreditCard, Truck, CheckCircle2, MessageSquare } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
@@ -40,8 +40,12 @@ export default function CheckoutPage() {
   const deliveryFee = 500;
   const grandTotal  = total + deliveryFee;
 
-  // Guard: redirect to cart if it became empty
-  if (items.length === 0 && !isSuccess) { router.replace("/cart"); return null; }
+  // Guard: redirect to cart if it became empty (client-side only)
+  useEffect(() => {
+    if (items.length === 0 && !isSuccess) {
+      router.replace("/cart");
+    }
+  }, [items.length, isSuccess, router]);
 
   const handlePlaceOrder = () => {
     if (saveAddress && currentUser) updateAddress(address);
