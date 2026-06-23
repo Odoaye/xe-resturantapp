@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * pages/admin/dashboard.tsx  →  Route: /admin/dashboard
  * ─────────────────────────────────────────────────────────────────────────────
